@@ -1,0 +1,3 @@
+database:
+  url: postgresql://postgres:postgres@localhost/test_rasagna
+  pool_size: 5

@@ -1,0 +1,236 @@
+{
+	"info": {
+		"_postman_id": "d848bc8d-7181-4b21-8c06-9fcded4f88f6",
+		"name": "restaurant api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/table/create/5",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/table/create/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"table",
+						"create",
+						"5"
+					]
+				},
+				"description": "This api is useful if restaurant owner has to setup new tables."
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/table/book",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"rasagna\",\r\n    \"mobile\":\"9553599947\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/table/book",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"table",
+						"book"
+					]
+				},
+				"description": "This api is useful for customer to book table."
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/table/all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/table/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"table",
+						"all"
+					]
+				},
+				"description": "This api is useful to get total number of tables in restaurant."
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/table/available",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/table/available",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"table",
+						"available"
+					]
+				},
+				"description": "api to get available tables along with their ID's."
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/table/booked",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/table/booked",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"table",
+						"booked"
+					]
+				},
+				"description": "api to get booked tables along with their ID's."
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/order/place",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"items\": [\"Chicken Biryani\", \"Diet coke\"],\r\n    \"table_id\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/order/place",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"place"
+					]
+				},
+				"description": "Api to place order."
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/order/all",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {}
+				},
+				"url": {
+					"raw": "http://localhost:8080/order/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"all"
+					]
+				},
+				"description": "Api to get all orders."
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/menu",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/menu",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"menu"
+					]
+				},
+				"description": "api to show menu."
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/menu/create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Ice cream\",\r\n    \"price\": 100.00,\r\n    \"time\": 15,\r\n    \"available\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/menu/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"menu",
+						"create"
+					]
+				},
+				"description": "api to create an item\r\n"
+			},
+			"response": []
+		}
+	]
+}

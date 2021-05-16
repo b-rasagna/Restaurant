@@ -1,0 +1,7 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from restaurant.bin.cli import RestaurantServer
+
+if __name__ == '__main__':
+    RestaurantServer()
