@@ -96,11 +96,11 @@ class Order:
         """
         try:
             output = dict()
-            table_objs = self.__dao_obj.get_all(entities.Orders)
-            if len(table_objs) == 0:
+            order_objs = self.__dao_obj.get_all(entities.Orders)
+            if len(order_objs) == 0:
                 output["message"] = "No orders found."
             else:
-                output["Total Number of orders"] = len(table_objs)
+                output["Total Number of orders"] = len(order_objs)
             return output
         except SQLAlchemyError as e:
             print(str(e))

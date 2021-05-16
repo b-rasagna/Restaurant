@@ -1,6 +1,6 @@
 import json
 
-from bottle import run, request, get, post
+from bottle import run, request, Bottle
 from sqlalchemy.exc import SQLAlchemyError
 
 from restaurant.service.item_service import Item
@@ -8,7 +8,9 @@ from restaurant.service.table_service import Table
 from restaurant.service.order_service import Order
 from restaurant.util import Validate
 
-@post('/order/place')
+app = Bottle()
+
+@app.post('/order/place')
 def placeOrder():
     output=dict()
     try:
@@ -31,7 +33,7 @@ def placeOrder():
         output["message"] = str(e)
         return output, 500
 
-@get('/order/all')
+@app.get('/order/all')
 def getAllOrders():
     output=dict()
     try:
@@ -45,7 +47,7 @@ def getAllOrders():
         output["message"] = str(e)
         return output, 500
 
-@post('/menu/create')
+@app.post('/menu/create')
 def createItem():
     output=dict()
     try:
@@ -70,7 +72,7 @@ def createItem():
         output["message"] = str(e)
         return output, 500
 
-@get('/menu')
+@app.get('/menu')
 def showMenu():
     output=dict()
     try:
@@ -84,7 +86,7 @@ def showMenu():
         output["message"] = str(e)
         return output, 500
 
-@post('/table/create/<number_of_tables:int>')
+@app.post('/table/create/<number_of_tables:int>')
 def createTables(number_of_tables):
     output=dict()
     try:
@@ -98,7 +100,7 @@ def createTables(number_of_tables):
         output["message"] = str(e)
         return output, 500
 
-@post('/table/book')
+@app.post('/table/book')
 def bookTable():
     output=dict()
     try:
@@ -121,7 +123,7 @@ def bookTable():
         output["message"] = str(e)
         return output, 500
 
-@get('/table/all')
+@app.get('/table/all')
 def getAllTables():
     output=dict()
     try:
@@ -135,7 +137,7 @@ def getAllTables():
         output["message"] = str(e)
         return output, 500
 
-@get('/table/booked')
+@app.get('/table/booked')
 def getBookedTables():
     output=dict()
     try:
@@ -149,7 +151,7 @@ def getBookedTables():
         output["message"] = str(e)
         return output, 500
 
-@get('/table/available')
+@app.get('/table/available')
 def getAvailableTables():
     output=dict()
     try:
@@ -172,6 +174,6 @@ def start_services(port):
     """
     try:
         host = '0.0.0.0'
-        run(host=host, port=port)
+        run(app, host=host, port=port)
     except Exception as e:
         print("Error starting the service..\n", str(e))

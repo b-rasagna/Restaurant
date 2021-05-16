@@ -20,10 +20,14 @@ class Item:
         session = None
         try:
             output = dict()
-            item_obj = entities.Items(name, price, time, available)
-            item_obj, session = self.__dao_obj.put(item_obj, transaction=True, current_session=session)
-            session.commit()
-            output["message"] = "Item created successfully"
+            item_objs, session = self.__dao_obj.get_where(entities.Items, "name = '{0}'".format(str(name)), return_session=True)
+            if len(item_objs) != 0:
+                output["message"] = "Item already exists"
+            else:
+                item_obj = entities.Items(name, price, time, available)
+                item_obj, session = self.__dao_obj.put(item_obj, transaction=True, current_session=session)
+                session.commit()
+                output["message"] = "Item created successfully"
             return output
         except SQLAlchemyError as e:
             if session:

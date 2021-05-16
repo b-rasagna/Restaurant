@@ -11,6 +11,7 @@ setup(name='restaurant',
       },
       scripts=['restaurant/bin/restaurant', 'restaurant/bin/restaurant.bat'],
       install_requires=[
-        "bottle==0.12.19"
+        "bottle==0.12.19",
+        "pytest==6.2.4"
     ]
 )
